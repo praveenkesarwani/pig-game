@@ -17,3 +17,5 @@ score of 100. (Hint: you can read that value with the .value property in JavaScr
 use google to figure this out :)
 3. Add another dice to the game, so that there are two dices now. The player looses his current score when one of them is a 1.
 (Hint: you will need CSS to position the second dice, so take a look at the CSS code for the first one.)
+
+<img align = center src = "ss.png">
