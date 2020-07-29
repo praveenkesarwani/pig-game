@@ -38,6 +38,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
           "current-" + activePlayer
         ).textContent = roundScore;
       } else {
+		  mySound.play();
         //Next player
         nextPlayer();
       }
@@ -95,8 +96,8 @@ document.querySelector(".btn-hold").addEventListener("click", function () {
         .classList.remove("active");
       gamePlaying = false;
     } else {
-      //Next Player
-      nextPlayer();
+		//Next Player
+		nextPlayer();
     }
   }
 });
@@ -118,8 +119,8 @@ function nextPlayer() {
   document.getElementById("current-1").textContent = 0;
   document.querySelector(".player-0-panel").classList.toggle("active");
   document.querySelector(".player-1-panel").classList.toggle("active");
-  document.getElementById('dice-1').style.display = 'none';
-  document.getElementById('dice-2').style.display = 'none';
+  //document.getElementById('dice-1').style.display = 'none';
+  //document.getElementById('dice-2').style.display = 'none';
 }
 
 // -----------------------------------------------------------------
@@ -131,6 +132,7 @@ function init() {
   activePlayer = 0;
   roundScore = 0;
   gamePlaying = true;
+  mySound = new sound("sound.wav");
   document.getElementById('dice-1').style.display = 'none';
   document.getElementById('dice-2').style.display = 'none';
 
@@ -146,3 +148,22 @@ function init() {
   document.querySelector(".player-1-panel").classList.remove("active");
   document.querySelector(".player-0-panel").classList.add("active");
 }
+
+// -----------------------------------------------------------------
+//            Sound to indicate a one was rolled                   //
+// -----------------------------------------------------------------
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+} 
