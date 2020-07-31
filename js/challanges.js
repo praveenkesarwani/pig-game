@@ -12,7 +12,6 @@ use google to figure this out :)
 */
 
 var scores, roundScore, activePlayer, gamePlaying;
-var lastDice;
 init();
 
 // -----------------------------------------------------------------
@@ -28,8 +27,8 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
     //2.Display the result
     document.getElementById('dice-1').style.display = 'block';
     document.getElementById('dice-2').style.display = 'block';
-    document.getElementById('dice-1').src = 'dice-' + dice1 +'.png';
-    document.getElementById('dice-2').src = 'dice-' + dice2 +'.png';
+    document.getElementById('dice-1').src = 'dice/dice-' + dice1 +'.png';
+    document.getElementById('dice-2').src = 'dice/dice-' + dice2 +'.png';
     
     if (dice1 !== 1 && dice2 !== 1) {
         //Add score
@@ -42,23 +41,6 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
         //Next player
         nextPlayer();
       }
-
-    // //update the round score IF the rolled number was NOT a 1
-    // if(dice === 6 && lastDice === 6){
-    //     //player looses score
-    //     scores[activePlayer] = 0;
-    //     document.getElementById("score-" + activePlayer).textContent = '0';
-    //     nextPlayer();
-    // } else if (dice !== 1) {
-    //   //Add score
-    //   roundScore += dice;
-    //   document.getElementById("current-" + activePlayer ).textContent = roundScore;
-    // } else {
-    //   //Next player
-    //   nextPlayer();
-    // }
-
-    // lastDice = dice;
   }
 });
 
